@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>正多面体展开图</title>
+	<style>
+		body{background:#eee;}
+		canvas{border:1px solid #999;}
+	</style>
+</head>
+<body>
+	<canvas id="c4"></canvas>
+	<canvas id="c6"></canvas>
+	<canvas id="c8"></canvas>
+	<canvas id="c12"></canvas>
+	<canvas id="c20"></canvas>
+
+	<script>
+		var c_size = 600;
+		var c_padding = 20;
+		var all=document.getElementsByTagName('canvas');
+		var ctx=new Array();
+		for(var i=0;i<all.length;i++){
+			all[i].width=c_size*2;
+			all[i].height=c_size*2;
+			all[i].style.width=c_size+"px";
+			all[i].style.height=c_size+"px";
+			ctx[all[i].id] = all[i].getContext("2d");
+			with(ctx[all[i].id]){
+				fillStyle="white";
+				lineWidth=2;
+				scale(2,2);
+				fillRect(0,0,1200,1200);
+			}
+		}
+
+		with(ctx["c4"]){
+			var w = c_size - c_padding*2;
+			var h = Math.sin(60*Math.PI/180)*w;
+			var sx = c_padding;
+			var sy = c_size/2+h/2;
+			moveTo(sx,sy);
+			lineTo(sx+w,sy);
+			lineTo(sx+w*0.5,sy-h);
+			lineTo(sx,sy);
+			moveTo(sx+w*0.25,sy-h*0.5);
+			lineTo(sx+w*0.75,sy-h*0.5);
+			lineTo(sx+w*0.5,sy);
+			lineTo(sx+w*0.25,sy-h*0.5);
+			stroke();
+		}
+
+		with(ctx["c6"]){
+			var w = (c_size-c_padding*2)/4;
+			var sx = c_padding;
+			var sy = (c_size-w*3)/2;
+			moveTo(sx,sy+w);
+			lineTo(sx+w*4,sy+w);
+			lineTo(sx+w*4,sy+w*2);
+			lineTo(sx,sy+w*2);
+			lineTo(sx,sy+w);
+			moveTo(sx+w,sy);
+			lineTo(sx+w,sy+w*3);
+			lineTo(sx+w*2,sy+w*3);
+			lineTo(sx+w*2,sy);
+			lineTo(sx+w,sy);
+			moveTo(sx+w*3,sy+w);
+			lineTo(sx+w*3,sy+w*2);
+			stroke();
+		}
+
+		with(ctx["c8"]){
+			var w = (c_size-c_padding*2)/3.5;
+			var h = Math.sqrt(w*w-w/2*w/2);
+			var sx = c_padding;
+			var sy = (c_size-h*3)/2 + h;
+			moveTo(sx+w*0.5,sy);
+			lineTo(sx+w*3.5,sy);
+			lineTo(sx+w*3,sy+h);
+			lineTo(sx,sy+h);
+			lineTo(sx+w*0.5,sy);
+			lineTo(sx+w*1.5,sy+h*2);
+			lineTo(sx+w*2.5,sy);
+			moveTo(sx+w*3,sy+h);
+			lineTo(sx+w*2,sy-h);
+			lineTo(sx+w*1,sy+h);
+			moveTo(sx+w*1.5,sy);
+			lineTo(sx+w*2,sy+h)
+			stroke();
+		}
+
+		with(ctx["c12"]){
+			draw5(0,132,266);
+			draw5(0,310,266);
+			draw5(0,488,266);
+			draw5(0,344,161);
+			draw5(0,454,161);
+			draw5(0,399,331);
+			draw5(180,-289,-331);
+			draw5(0,-467,-331);
+			draw5(0,-111,-331);
+			draw5(0,-145,-435);
+			draw5(0,-256,-435);
+			draw5(0,-200,-266);
+		}
+
+		with(ctx["c20"]){
+			var w = (c_size-c_padding*2)/5.5;
+			var h = Math.sin(60*Math.PI/180)*w;
+			var sx = c_padding;
+			var sy = (c_size-h*3)/2;
+			moveTo(sx,sy+h*2);
+			lineTo(sx+w*5,sy+h*2);
+			lineTo(sx+w*4,sy);
+			lineTo(sx+w*2.5,sy+h*3);
+			lineTo(sx+w,sy);
+			lineTo(sx,sy+h*2);
+			lineTo(sx+w*0.5,sy+h*3);
+			lineTo(sx+w*2,sy);
+			lineTo(sx+w*3.5,sy+h*3);
+			lineTo(sx+w*5,sy);
+			lineTo(sx+w*5.5,sy+h);
+			lineTo(sx+w*4.5,sy+h*3);
+			lineTo(sx+w*3,sy);
+			lineTo(sx+w*1.5,sy+h*3);
+			lineTo(sx+w*0.5,sy+h);
+			lineTo(sx+w*5.5,sy+h);
+			stroke();
+		}
+
+		function draw5(r,sx,sy){
+			var w = 68;
+			var a = Math.sin(18*Math.PI/180)*w;
+			var b = Math.sin(72*Math.PI/180)*w;
+			var c = Math.sin(36*Math.PI/180)*w;
+			with(ctx["c12"]){
+				beginPath();
+				rotate(r*Math.PI/180);
+				moveTo(sx,sy);
+				lineTo(sx+w,sy);
+				lineTo(sx+w+a,sy+b);
+				lineTo(sx+w/2,sy+b+c);
+				lineTo(sx-a,sy+b);
+				lineTo(sx,sy);
+				closePath();
+				stroke();
+			}
+		}
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+

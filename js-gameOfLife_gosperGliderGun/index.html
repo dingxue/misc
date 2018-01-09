@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>生命游戏-高斯帕滑翔机枪</title>
+	<style>
+		*{margin:0;padding:0;}
+		body{background:#eee;}
+		h1{text-align:center;font-size:24px;margin-top:30px;}
+		h2{text-align:center;font-size:20px;font-weight:normal;}
+		table{border-collapse:collapse;margin:24px auto;}
+		td{border:1px solid #eee;background:#fff;width:8px;height:8px;}
+		td.c{background:#000;}
+	</style>
+</head>
+<body onclick="doit()" onkeypress="exec()">
+	<h1>生命游戏：高斯帕滑翔机枪</h1>
+	<h2>(Game of Life: Gosper Glider Gun)</h2>
+	<table id="main"></table>
+	<script>
+		var rows = 48;
+		var cols = 60;
+		var tb = document.getElementById("main");
+		for (var i = 0; i < rows; i++) {
+			var row = tb.insertRow(0);
+			for (var j = 0; j < cols; j++) {
+				row.insertCell(0);
+			}
+		}
+		var init = [
+			[0,4],[0,5],[1,4],[1,5],
+			[10,4],[10,5],[10,6],[11,3],[11,7],[12,2],[12,8],[13,2],[13,8],[14,5],[15,3],[15,7],[16,4],[16,5],[16,6],[17,5],
+			[20,2],[20,3],[20,4],[21,2],[21,3],[21,4],[22,1],[22,5],[24,0],[24,1],[24,5],[24,6],
+			[34,2],[34,3],[35,2],[35,3],
+		];
+		var init_x = 2;
+		var init_y = 3;
+		for(var i=0; i<init.length;i++){
+			tb.rows[init[i][1]+init_y].cells[init[i][0]+init_x].className = "c";
+		}
+
+		var is_do = false;
+		var si;
+		function doit(){
+			if(is_do){
+				clearInterval(si);
+				is_do = false;
+			} else {
+				si = setInterval("exec()",100);
+				is_do = true;
+			}
+		}
+
+		function exec(){
+			var result = new Array();
+			for(var i=0;i<rows;i++){
+				for(var j=0;j<cols;j++){
+					if(cal(j,i)=="c"){
+						result.push([j,i]);
+					}
+				}
+			}
+			for(var i=0;i<rows;i++){
+				for(var j=0;j<cols;j++){
+					tb.rows[i].cells[j].className = "";
+				}
+			}
+			for(var i=0;i<result.length;i++){
+				tb.rows[result[i][1]].cells[result[i][0]].className = "c";
+			}
+		}
+
+		function cal(x, y){
+			var t = [
+				[x-1, y-1], [x-1, y], [x-1, y+1],
+				[x,   y-1],           [x,   y+1],
+				[x+1, y-1], [x+1, y], [x+1, y+1]
+			];
+			var c = 0;
+			for(var i=0;i<t.length;i++){
+				if(t[i][0]<0 || t[i][0]>=cols || t[i][1]<0 || t[i][1]>=rows){
+					continue;
+				}
+				if(tb.rows[t[i][1]].cells[t[i][0]].className == "c"){
+					c++;
+				}
+			}
+			var cur = tb.rows[y].cells[x].className;
+			if(cur=="c" && (c<2 || c>3)){
+				return "";
+			} else if(cur!="c" && c==3){
+				return "c";
+			} else {
+				return cur;
+			}
+		}
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
