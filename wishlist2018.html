@@ -6,7 +6,7 @@
     <title>2018 wish list</title>
     <style>
     * {
-        font-family: Arial;
+        font-family: "Courier New";
         font-size: 16px;
         line-height: 1.5em;
         margin: 0;
@@ -15,9 +15,24 @@
     body {
         padding: 10px 40px;
     }
+    span {
+        display: inline-block;
+        width: 100px;
+        height: 20px;
+        margin-right: 10px;
+        border: 1px solid #21B56F;
+        background: linear-gradient(#66f9cf, #66f9cf) no-repeat;
+        vertical-align: text-bottom;
+        text-align: center;
+        color: #228844;
+        font-size: 12px;
+    }
     #op {
         border-bottom: 1px solid #ccc;
         padding-left: 20px;
+    }
+    #op span{
+        width:200px;
     }
     button {
         width: 120px;
@@ -51,18 +66,6 @@
         font-size: 14px;
         line-height: 1em;
     }
-    li span {
-        display: inline-block;
-        width: 100px;
-        height: 20px;
-        margin-right: 10px;
-        border: 1px solid #21B56F;
-        background: linear-gradient(#66f9cf, #66f9cf) no-repeat;
-        vertical-align: text-bottom;
-        text-align: center;
-        color: #228844;
-        font-size: 12px;
-    }
     </style>
 </head>
 
@@ -71,6 +74,7 @@
         <button id="btn0" onclick="show(0)">全部</button>
         <button id="btn1" onclick="show(1)">待完成</button>
         <button id="btn2" onclick="show(2)">已完成</button>
+        <span id="total_progress"></span>
     </div>
     <ul id="list"></ul>
     <script>
@@ -95,8 +99,14 @@
         { "id": 18, "title": "跑步500公里", "progress": 0, "ctime": "", "notes": [] },
         { "id": 19, "title": "学会游泳", "progress": 0, "ctime": "", "notes": [] },
         { "id": 20, "title": "学会围棋", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 21, "title": "练完一本字帖", "progress": 5, "ctime": "", "notes": ["0105: 购买用具和字帖"] },
-        { "id": 22, "title": "读完20本书", "progress": 5, "ctime": "", "notes": ["0106: 《商战》杰克•特劳特/阿尔•里斯"] },
+        { "id": 21, "title": "练完一本字帖", "progress": 5, "ctime": "", "notes": [
+            "0105: 购买用具和字帖"
+            ]
+        },
+        { "id": 22, "title": "读完20本书", "progress": 5, "ctime": "", "notes": [
+            "0106: 《商战》杰克•特劳特/阿尔•里斯"
+            ]
+        },
         { "id": 23, "title": "读完《道德经》", "progress": 0, "ctime": "", "notes": [] },
         { "id": 24, "title": "读一本心理学书籍", "progress": 0, "ctime": "", "notes": [] },
         { "id": 25, "title": "读一本技术书籍", "progress": 0, "ctime": "", "notes": [] },
@@ -166,12 +176,31 @@
         { "id": 89, "title": "吃一家老北京八大楼", "progress": 0, "ctime": "", "notes": [] },
         { "id": 90, "title": "看一部电视剧", "progress": 0, "ctime": "", "notes": [] },
         { "id": 91, "title": "看一部纪录片", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 92, "title": "看三部未看过的豆瓣TOP250电影", "progress": 33, "ctime": "", "notes": ["0108: 《纵横四海》周润发/张国荣"] },
+        { "id": 92, "title": "看三部未看过的豆瓣TOP250电影", "progress": 66.7, "ctime": "", "notes": [
+            "0108: 《纵横四海》周润发/张国荣", 
+            "0114: 《美丽人生>罗伯托·贝尼尼/尼可莱塔·布拉斯基"
+            ]
+        },
         { "id": 93, "title": "去影院看一次非大片", "progress": 0, "ctime": "", "notes": [] },
         { "id": 94, "title": "在豆瓣写三篇影评", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 95, "title": "COC所有建筑满级", "progress": 4.8, "ctime": "", "notes": ["0101: 754", "0111: 718"] },
-        { "id": 96, "title": "COC任意一王满级", "progress": 12.5, "ctime": "", "notes": ["0101: 女王33，男王28，咏王12", "0102: 女王33，男王29，咏王12", "0105: 女王33，男王29，咏王13", "0109: 女王34，男王29，咏王13"] },
-        { "id": 97, "title": "通关一个单机游戏", "progress": 5, "ctime": "", "notes": ["0104: 下载Find Paradise"] },
+        { "id": 95, "title": "COC所有建筑满级", "progress": 6.6, "ctime": "", "notes": [
+            "0101: 754", 
+            "0111: 718", 
+            "0114: 704"
+            ]
+        },
+        { "id": 96, "title": "COC任意一王满级", "progress": 25, "ctime": "", "notes": [
+            "0101: 女王33，男王28，咏王12", 
+            "0102: 女王33，男王29，咏王12", 
+            "0105: 女王33，男王29，咏王13", 
+            "0109: 女王34，男王29，咏王13", 
+            "0111: 女王34，男王29，咏王14"
+            ]
+        },
+        { "id": 97, "title": "通关一个单机游戏", "progress": 5, "ctime": "", "notes": [
+            "0104: 下载Find Paradise"
+            ]
+        },
         { "id": 98, "title": "办一个新的身份证", "progress": 0, "ctime": "", "notes": [] },
         { "id": 99, "title": "拍一套正装照", "progress": 0, "ctime": "", "notes": [] },
         { "id": 100, "title": "拍一套全家照", "progress": 0, "ctime": "", "notes": [] }
@@ -184,18 +213,27 @@
         }
     });
 
-    //统计各组数量
+    //统计各组数量和整体进度
     var total_count = data.length;
     var completed_count = 0;
+    var total_progress = 0;
     for (var i = 0; i < data.length; i++) {
         if (data[i].progress == 100) {
             completed_count++;
         }
+        total_progress += data[i].progress;
     }
+    
     var uncompleted_count = total_count - completed_count;
     document.getElementById("btn0").innerHTML += "(" + total_count + ")";
     document.getElementById("btn1").innerHTML += "(" + uncompleted_count + ")";
     document.getElementById("btn2").innerHTML += "(" + completed_count + ")";
+    
+    total_progress = (total_progress/100).toFixed(2);
+    var obj_tp = document.getElementById("total_progress");
+    obj_tp.style.backgroundSize = total_progress + "% 100%";
+    obj_tp.innerHTML = total_progress + "%";
+
 
     var lastTab = 1;
 
