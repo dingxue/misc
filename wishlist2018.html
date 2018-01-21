@@ -31,8 +31,8 @@
         border-bottom: 1px solid #ccc;
         padding-left: 20px;
     }
-    #op span{
-        width:200px;
+    #op span {
+        width: 200px;
     }
     button {
         width: 120px;
@@ -78,140 +78,731 @@
     </div>
     <ul id="list"></ul>
     <script>
-    var data = [
-        { "id": 1, "title": "全家去一次草原天路", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 2, "title": "全家来一次温泉之旅", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 3, "title": "全家去一次大兴野生动物园", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 4, "title": "全家去一次游乐场", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 5, "title": "去颐和园划一次船", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 6, "title": "去奥森看一次向日葵", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 7, "title": "去天安门广场看一次升旗", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 8, "title": "从钉子塔上俯看北京城", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 9, "title": "从景山公园俯看紫禁城", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 10, "title": "去一次十三陵", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 11, "title": "去一次国家图书馆", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 12, "title": "去一次青海湖", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 13, "title": "独自去一次未曾去过的城市", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 14, "title": "坐一次天津之眼", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 15, "title": "看一次泰山日出", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 16, "title": "滑一次雪", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 17, "title": "到达北京所有的地铁终点站", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 18, "title": "跑步500公里", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 19, "title": "学会游泳", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 20, "title": "学会围棋", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 21, "title": "练完一本字帖", "progress": 5, "ctime": "", "notes": [
-            "0105: 购买用具和字帖"
+    var data = [{
+            "id": 1,
+            "title": "全家去一次草原天路",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 2,
+            "title": "全家来一次温泉之旅",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 3,
+            "title": "全家去一次大兴野生动物园",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 4,
+            "title": "全家去一次游乐场",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 5,
+            "title": "去颐和园划一次船",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 6,
+            "title": "去奥森看一次向日葵",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 7,
+            "title": "去天安门广场看一次升旗",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 8,
+            "title": "从钉子塔上俯看北京城",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 9,
+            "title": "从景山公园俯看紫禁城",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 10,
+            "title": "去一次十三陵",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 11,
+            "title": "去一次国家图书馆",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 12,
+            "title": "去一次青海湖",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 13,
+            "title": "独自去一次未曾去过的城市",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 14,
+            "title": "坐一次天津之眼",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 15,
+            "title": "看一次泰山日出",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 16,
+            "title": "滑一次雪",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 17,
+            "title": "到达北京所有的地铁终点站",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 18,
+            "title": "跑步500公里",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 19,
+            "title": "学会游泳",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 20,
+            "title": "学会围棋",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 21,
+            "title": "练完一本字帖",
+            "progress": 5,
+            "ctime": "",
+            "notes": [
+                "0105: 购买用具和字帖",
             ]
         },
-        { "id": 22, "title": "读完20本书", "progress": 5, "ctime": "", "notes": [
-            "0106: 《商战》杰克•特劳特/阿尔•里斯"
+        {
+            "id": 22,
+            "title": "读完20本书",
+            "progress": 10,
+            "ctime": "",
+            "notes": [
+                "0106: 《商战》杰克•特劳特/阿尔•里斯",
+                "0116: 《血腥的盛唐1》王觉仁",
             ]
         },
-        { "id": 23, "title": "读完《道德经》", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 24, "title": "读一本心理学书籍", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 25, "title": "读一本技术书籍", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 26, "title": "读一部网络小说", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 27, "title": "在豆瓣写三篇书评", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 28, "title": "参加一次线下读书会", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 29, "title": "参加一次正式的管理培训课程", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 30, "title": "完成一门在线课程", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 31, "title": "学一门新编程语言", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 32, "title": "做一次全面体检", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 33, "title": "点一次痣", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 34, "title": "体重下降到77.5以下（BMI24以下）", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 35, "title": "带世博看一次儿童剧", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 36, "title": "带世博去影院看一次电影", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 37, "title": "带世博去听一次天文馆讲座", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 38, "title": "带世博去野外看一次银河", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 39, "title": "带世博去一次人文类博物馆", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 40, "title": "和世博完成一本书的亲子阅读", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 41, "title": "带世扬看一次儿童剧", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 42, "title": "带世扬去影院看一次电影", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 43, "title": "带世扬去一次海洋馆", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 44, "title": "带世扬去一次自然类博物馆", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 45, "title": "和世扬完成一本书的亲子阅读", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 46, "title": "和媳妇去一次酒吧", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 47, "title": "和媳妇吃一次高大上西餐", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 48, "title": "和媳妇看一次话剧/舞台剧", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 49, "title": "和媳妇听一次相声现场", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 50, "title": "和媳妇听一次演唱会", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 51, "title": "和媳妇听一次音乐会", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 52, "title": "为自己买一件礼物", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 53, "title": "送媳妇一个生日礼物", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 54, "title": "送世博一个生日礼物", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 55, "title": "送世扬一个生日礼物", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 56, "title": "买一个新洗衣机", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 57, "title": "买一套新餐具", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 58, "title": "买一个新路由器", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 59, "title": "买一个游戏机", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 60, "title": "改造一个卧室为榻榻米", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 61, "title": "彻底整理一次家里的书架", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 62, "title": "彻底整理一次家里所有的储物柜", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 63, "title": "完成五次家庭分享", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 64, "title": "组织一次Home Party", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 65, "title": "组织一次家庭联谊野游", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 66, "title": "认识五层所有的住户", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 67, "title": "组织一次高中同学聚会", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 68, "title": "组织初中毕业二十年聚会", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 69, "title": "组织或参加一次朋友聚会", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 70, "title": "参加一次技术行业会议", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 71, "title": "参加一次企业服务行业会议", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 72, "title": "约三位老同学吃饭聊天", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 73, "title": "约三位老同事吃饭聊天", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 74, "title": "约三位老朋友吃饭聊天", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 75, "title": "结识三位新朋友", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 76, "title": "发三次朋友圈", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 77, "title": "完成一次部门全员1对1", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 78, "title": "完成一次部门全员团建", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 79, "title": "完成一次跨部门中层团建", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 80, "title": "组织一次技术管理成员出游", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 81, "title": "完成一门公司级别的培训课程", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 82, "title": "完成一门部门级别的培训课程", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 83, "title": "邀请外部专家做一次技术讲座", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 84, "title": "组织一次hackathon", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 85, "title": "独自做五次code review", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 86, "title": "独自做一个技术项目", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 87, "title": "为公司内刊写三篇文章", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 88, "title": "吃三个省级驻京办餐厅", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 89, "title": "吃一家老北京八大楼", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 90, "title": "看一部电视剧", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 91, "title": "看一部纪录片", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 92, "title": "看三部未看过的豆瓣TOP250电影", "progress": 66.7, "ctime": "", "notes": [
-            "0108: 《纵横四海》周润发/张国荣", 
-            "0114: 《美丽人生>罗伯托·贝尼尼/尼可莱塔·布拉斯基"
+        {
+            "id": 23,
+            "title": "读完《道德经》",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 24,
+            "title": "读一本心理学书籍",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 25,
+            "title": "读一本技术书籍",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 26,
+            "title": "读一部网络小说",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 27,
+            "title": "在豆瓣写三篇书评",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 28,
+            "title": "参加一次线下读书会",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 29,
+            "title": "参加一次正式的管理培训课程",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 30,
+            "title": "完成一门在线课程",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 31,
+            "title": "学一门新编程语言",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 32,
+            "title": "做一次全面体检",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 33,
+            "title": "点一次痣",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 34,
+            "title": "体重下降到77.5以下（BMI24以下）",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 35,
+            "title": "带世博看一次儿童剧",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 36,
+            "title": "带世博去影院看一次电影",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 37,
+            "title": "带世博去听一次天文馆讲座",
+            "progress": 100,
+            "ctime": "2018-01-20",
+            "notes": [
+                "0120: 《2018年天象》"
             ]
         },
-        { "id": 93, "title": "去影院看一次非大片", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 94, "title": "在豆瓣写三篇影评", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 95, "title": "COC所有建筑满级", "progress": 6.6, "ctime": "", "notes": [
-            "0101: 754", 
-            "0111: 718", 
-            "0114: 704"
+        {
+            "id": 38,
+            "title": "带世博去野外看一次银河",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 39,
+            "title": "带世博去一次人文类博物馆",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 40,
+            "title": "和世博完成一本书的亲子阅读",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 41,
+            "title": "带世扬看一次儿童剧",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 42,
+            "title": "带世扬去影院看一次电影",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 43,
+            "title": "带世扬去一次海洋馆",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 44,
+            "title": "带世扬去一次自然类博物馆",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 45,
+            "title": "和世扬完成一本书的亲子阅读",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 46,
+            "title": "和媳妇去一次酒吧",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 47,
+            "title": "和媳妇吃一次高大上西餐",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 48,
+            "title": "和媳妇看一次话剧/舞台剧",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 49,
+            "title": "和媳妇听一次相声现场",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 50,
+            "title": "和媳妇听一次演唱会",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 51,
+            "title": "和媳妇听一次音乐会",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 52,
+            "title": "为自己买一件礼物",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 53,
+            "title": "送媳妇一个生日礼物",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 54,
+            "title": "送世博一个生日礼物",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 55,
+            "title": "送世扬一个生日礼物",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 56,
+            "title": "买一个新洗衣机",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 57,
+            "title": "买一套新餐具",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 58,
+            "title": "买一个新路由器",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 59,
+            "title": "买一个游戏机",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 60,
+            "title": "改造一个卧室为榻榻米",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 61,
+            "title": "彻底整理一次家里的书架",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 62,
+            "title": "彻底整理一次家里所有的储物柜",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 63,
+            "title": "完成五次家庭分享",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 64,
+            "title": "组织一次Home Party",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 65,
+            "title": "组织一次家庭联谊野游",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 66,
+            "title": "认识五层所有的住户",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 67,
+            "title": "组织一次高中同学聚会",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 68,
+            "title": "组织初中毕业二十年聚会",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 69,
+            "title": "组织或参加一次朋友聚会",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 70,
+            "title": "参加一次技术行业会议",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 71,
+            "title": "参加一次企业服务行业会议",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 72,
+            "title": "约三位老同学吃饭聊天",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 73,
+            "title": "约三位老同事吃饭聊天",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 74,
+            "title": "约三位老朋友吃饭聊天",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 75,
+            "title": "结识三位新朋友",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 76,
+            "title": "发三次朋友圈",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 77,
+            "title": "完成一次部门全员1对1",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 78,
+            "title": "完成一次部门全员团建",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 79,
+            "title": "完成一次跨部门中层团建",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 80,
+            "title": "组织一次技术管理成员出游",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 81,
+            "title": "完成一门公司级别的培训课程",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 82,
+            "title": "完成一门部门级别的培训课程",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 83,
+            "title": "邀请外部专家做一次技术讲座",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 84,
+            "title": "组织一次hackathon",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 85,
+            "title": "独自做五次code review",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 86,
+            "title": "独自做一个技术项目",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 87,
+            "title": "为公司内刊写三篇文章",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 88,
+            "title": "吃三个省级驻京办餐厅",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 89,
+            "title": "吃一家老北京八大楼",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 90,
+            "title": "看一部电视剧",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 91,
+            "title": "看一部纪录片",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 92,
+            "title": "看三部未看过的豆瓣TOP250电影",
+            "progress": 66.7,
+            "ctime": "",
+            "notes": [
+                "0108: 《纵横四海》周润发/张国荣",
+                "0114: 《美丽人生>罗伯托·贝尼尼/尼可莱塔·布拉斯基",
             ]
         },
-        { "id": 96, "title": "COC任意一王满级", "progress": 25, "ctime": "", "notes": [
-            "0101: 女王33，男王28，咏王12", 
-            "0102: 女王33，男王29，咏王12", 
-            "0105: 女王33，男王29，咏王13", 
-            "0109: 女王34，男王29，咏王13", 
-            "0111: 女王34，男王29，咏王14"
+        {
+            "id": 93,
+            "title": "去影院看一次非大片",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 94,
+            "title": "在豆瓣写三篇影评",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 95,
+            "title": "COC所有建筑满级",
+            "progress": 11.4,
+            "ctime": "",
+            "notes": [
+                "0101: 782",
+                "0111: 746",
+                "0121: 693",
             ]
         },
-        { "id": 97, "title": "通关一个单机游戏", "progress": 5, "ctime": "", "notes": [
-            "0104: 下载Find Paradise"
+        {
+            "id": 96,
+            "title": "COC任意一王满级",
+            "progress": 37.5,
+            "ctime": "",
+            "notes": [
+                "0101: 女王33，男王28，咏王12",
+                "0102: 女王33，男王29，咏王12",
+                "0105: 女王33，男王29，咏王13",
+                "0109: 女王34，男王29，咏王13",
+                "0111: 女王34，男王29，咏王14",
+                "0117: 女王34，男王30，咏王14",
+                "0120: 女王34，男王30，咏王15",
             ]
         },
-        { "id": 98, "title": "办一个新的身份证", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 99, "title": "拍一套正装照", "progress": 0, "ctime": "", "notes": [] },
-        { "id": 100, "title": "拍一套全家照", "progress": 0, "ctime": "", "notes": [] }
-    ];
-    data.sort(function(a, b) {
-        if (b.progress == a.progress) {
-            return a.id - b.id;
-        } else {
-            return b.progress - a.progress;
+        {
+            "id": 97,
+            "title": "通关一个单机游戏",
+            "progress": 5,
+            "ctime": "",
+            "notes": [
+                "0104: 下载Find Paradise",
+            ]
+        },
+        {
+            "id": 98,
+            "title": "办一个新的身份证",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 99,
+            "title": "拍一套正装照",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
+        },
+        {
+            "id": 100,
+            "title": "拍一套全家照",
+            "progress": 0,
+            "ctime": "",
+            "notes": []
         }
-    });
+    ];
 
     //统计各组数量和整体进度
     var total_count = data.length;
@@ -223,13 +814,13 @@
         }
         total_progress += data[i].progress;
     }
-    
+
     var uncompleted_count = total_count - completed_count;
     document.getElementById("btn0").innerHTML += "(" + total_count + ")";
     document.getElementById("btn1").innerHTML += "(" + uncompleted_count + ")";
     document.getElementById("btn2").innerHTML += "(" + completed_count + ")";
-    
-    total_progress = (total_progress/100).toFixed(2);
+
+    total_progress = (total_progress / 100).toFixed(2);
     var obj_tp = document.getElementById("total_progress");
     obj_tp.style.backgroundSize = total_progress + "% 100%";
     obj_tp.innerHTML = total_progress + "%";
@@ -238,6 +829,27 @@
     var lastTab = 1;
 
     function show(type) {
+        if (type == 1) {
+            data.sort(function(a, b) {
+                if (b.progress == a.progress) {
+                    return a.id - b.id;
+                } else {
+                    return b.progress - a.progress;
+                }
+            });
+
+        } else if (type == 2) {
+            data.sort(function(a, b) {
+                return a.ctime - b.ctime;
+            });
+
+        } else {
+            data.sort(function(a, b) {
+                return a.id - b.id;
+            });
+
+        }
+
         document.getElementById("btn" + lastTab).className = "";
         document.getElementById("btn" + type).className = "cur";
         lastTab = type;
