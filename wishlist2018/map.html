@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>河西走廊之行</title>
+    <title>map</title>
     <style>
         html,
         body,
@@ -39,32 +39,7 @@
             ['敦煌莫高窟', 94.815716, 40.048655, 11, 20],
             ['敦煌机场', 94.815716, 40.169655, 11, -14],
         ];
-        //调试用，标注并放大显示到最后一个坐标
-        //map.centerAndZoom(new BMap.Point(list[list.length - 1][1], list[list.length - 1][2]), 17);
-        //调试用，根据最后一个地点的名称自动解析坐标并标注和放大显示
-        //geoCoder(list[list.length - 1][0]);
-
-        var driving = new BMap.DrivingRoute(map, {
-            renderOptions: {
-                map: map,
-                autoViewport: false
-            }
-        });
-        driving.search(new BMap.Point(102.047812, 36.533279), new BMap.Point(94.815716, 40.169655), {
-            waypoints: [
-                new BMap.Point(101.574504, 36.492461),
-                new BMap.Point(101.100612, 36.448279),
-                new BMap.Point(100.466121, 36.656295),
-                new BMap.Point(101.001203, 37.015977),
-                new BMap.Point(101.46288, 37.70056),
-                new BMap.Point(100.194668, 39.141591),
-                new BMap.Point(100.070192, 38.978663),
-                new BMap.Point(98.222886, 39.807511),
-                new BMap.Point(94.060708, 39.940705),
-                new BMap.Point(94.677267, 40.093692),
-                new BMap.Point(94.815716, 40.048655)
-            ]
-        });
+        var waypoints = [];
 
         for (i in list) {
             var t = list[i];
@@ -76,38 +51,21 @@
                 offset: new BMap.Size(t[3], t[4])
             });
             marker.setLabel(label);
+
+            if (i > 0 && i < 10) {
+                waypoints.push(point);
+            }
         }
 
-        function addMessage(marker, title, message) {
-            var opts = {
-                width: 200,
-                height: 100,
-                title: title
-            };
-            var infoWindow = new BMap.InfoWindow(message, opts);
-            marker.addEventListener("click", function (e) {
-                var p = e.target;
-                var pp = new BMap.Point(p.getPosition().lng, p.getPosition().lat);
-                map.openInfoWindow(infoWindow, pp);
-            });
-        }
-
-        map.addEventListener("click", function (e) {
-            console.log(e.point.lng + ", " + e.point.lat);
+        var driving = new BMap.DrivingRoute(map, {
+            renderOptions: {
+                map: map,
+                autoViewport: false
+            }
         });
-
-
-        function geoCoder(address) {
-            var myGeo = new BMap.Geocoder();
-            myGeo.getPoint(address, function (point) {
-                if (point) {
-                    console.log(point.lng + ", " + point.lat);
-                    map.centerAndZoom(new BMap.Point(point.lng, point.lat), 18);
-                    var marker = new BMap.Marker(point);
-                    map.addOverlay(marker);
-                }
-            }, "中国");
-        }
+        driving.search(new BMap.Point(list[0][1], list[0][2]), new BMap.Point(list[10][1], list[10][2]), {
+            waypoints: waypoints
+        });
     </script>
 </body>
 
